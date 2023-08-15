@@ -1,0 +1,59 @@
+p.verso{
+
+    color: blue;
+ 
+ }
+
+ .mote{
+    color: red;
+ }
+
+ .poema{
+    width: 100%;
+    text-align: center;
+ }
+
+ .link-joao{
+    text-decoration: none;
+    color: black;
+ }
+
+ .link-joao:hover{
+    color: blue;
+ }
+
+ .joao-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+ .img{
+    margin-right: 2em;
+ }
+
+ .img img{
+    border-radius: 50%;
+ }
+
+ .name p{
+    font-size: 20px;
+ }
+
+ .table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2em;
+ }
+
+ .table th{
+    background-color: lightblue;
+    padding: 1em;
+    border: 1px solid black;
+ }
+
+ .table td{
+    padding: 1em;
+ }
