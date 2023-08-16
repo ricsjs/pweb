@@ -3,9 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css">
     <title>JavaScript básico</title>
+
+    <style>
+
+        #meuamor{
+            
+        }
+
+    </style>
 </head>
 <body>
+
+    <div>
+        <button id="botaoCarregar">Carregando cervejas...</button>
+    </div>
     
+    <div id="meuamor" style="display: none;">
+        <h1>meu amor</h1>
+    </div>
+
+    <script>
+
+        var divDisplay = "none";
+
+        function carregarDiv() {
+
+            if (divDisplay === "none") {
+                document.getElementById("meuamor").style.display = "block";
+                divDisplay = "block"
+            } else if (divDisplay === "block"){
+                document.getElementById("meuamor").style.display = "none";
+                divDisplay = "none";
+            }
+        }
+  
+        let botao = document.getElementById("botaoCarregar")
+        botao.addEventListener("click", carregarDiv)
+  
+     </script>
+
 </body>
 </html>
