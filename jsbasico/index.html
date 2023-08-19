@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css">
     <title>JavaScript básico</title>
 
     <style>
 
-        #meuamor{
-            
+        #cervejas{
+            opacity: 0;
+            transition: opacity 1s;
         }
 
     </style>
@@ -20,8 +20,8 @@
         <button id="botaoCarregar">Carregando cervejas...</button>
     </div>
     
-    <div id="meuamor" style="display: none;">
-        <h1>meu amor</h1>
+    <div id="cervejas">
+        <h1>Cervejas carregadas</h1>
     </div>
 
     <script>
@@ -30,13 +30,21 @@
 
         function carregarDiv() {
 
-            if (divDisplay === "none") {
-                document.getElementById("meuamor").style.display = "block";
-                divDisplay = "block"
-            } else if (divDisplay === "block"){
-                document.getElementById("meuamor").style.display = "none";
-                divDisplay = "none";
+            var opacidade = Number(cervejas.style.opacity);
+            console.log(opacidade)
+
+            var mostrar = document.getElementById("cervejas");
+
+            if(opacidade === 0){
+
+                mostrar.style.opacity = '1';
+
+            }else{
+
+                mostrar.style.opacity = '0';
+
             }
+
         }
   
         let botao = document.getElementById("botaoCarregar")
