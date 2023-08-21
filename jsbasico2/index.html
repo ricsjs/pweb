@@ -29,6 +29,10 @@
     
     <div id="cervejasOrdenadas">
         <button id="botaoOrdena">Mostrar cervejas ordenadas...</button>
+    </div>
+
+    <div id="cervejasRandom">
+        <button id="botaoRandom">Mostrar cervejas embaralhadas...</button>
     </div> 
 
    </body>   
@@ -52,12 +56,9 @@
         }
 
 
-
         function carregarDiv(){
 
             let div = document.getElementById("meu amor")
-
-            //let cervejasHtml = [`<h1>${cervejas[0]}</h1>`,`<h1>${cervejas[1]}</h1>`, `<h1>${cervejas[2]}</h1>`] 
 
             let cervejasHtml = cervejas.map(transformar) 
 
@@ -69,13 +70,38 @@
 
             let div = document.getElementById("cervejasOrdenadas")
 
-            //let cervejasHtml = [`<h1>${cervejas[0]}</h1>`,`<h1>${cervejas[1]}</h1>`, `<h1>${cervejas[2]}</h1>`] 
-
             cervejas.sort()
             let cervejasHtml = cervejas.map(transformar) 
 
             div.innerHTML = `${cervejasHtml.join("\n")}`
 
+        }
+
+        function carregarDivEmbaralhada(){
+
+            let div = document.getElementById("cervejasRandom")
+
+            shuffle(cervejas);
+
+            let cervejasHtml = cervejas.map(transformar) 
+
+            div.innerHTML = `${cervejasHtml.join("\n")}`
+
+        }
+
+        function shuffle(array) {
+            let currentIndex = array.length, randomIndex;
+
+            while (currentIndex != 0) {
+
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+
+                [array[currentIndex], array[randomIndex]] = [
+                array[randomIndex], array[currentIndex]];
+            }
+
+            return array;
         }
 
 
@@ -85,7 +111,11 @@
       
       let botaoOrdena = document.getElementById("botaoOrdena")
 
-      botaoOrdena.addEventListener("click", carregarDivOrdenada) 
+      botaoOrdena.addEventListener("click", carregarDivOrdenada)
+
+      let botaoRandom = document.getElementById("botaoRandom")
+
+      botaoRandom.addEventListener("click", carregarDivEmbaralhada) 
 
    </script>
 
