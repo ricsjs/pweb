@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>   
+
+   <head>
+
+      <meta charset="UTF-8">
+
+      <style>
+
+        .divCervejas{
+            text-align: center;
+            max-width: 100%;
+            background-color: aqua;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+      </style>
+
+   </head>
+
+   <body>
+
+    <div id="meu amor">
+        <button id="botaoCarregar">Mostrar cervejas...</button>
+    </div>
+    
+    <div id="cervejasOrdenadas">
+        <button id="botaoOrdena">Mostrar cervejas ordenadas...</button>
+    </div> 
+
+   </body>   
+
+   <script>
+
+        let cervejas = ["Guiness", "Desperados", "Becks"]
+
+        function transformar(item){
+
+            return `<table border="1" class="divCervejas">
+                        <tr>
+                            <tr>
+                                <th>CERVEJA</th>    
+                            <tr>
+                            <tr>
+                                <td>${item}</td>
+                            </tr>    
+                        </tr>
+                    </table>`
+        }
+
+
+
+        function carregarDiv(){
+
+            let div = document.getElementById("meu amor")
+
+            //let cervejasHtml = [`<h1>${cervejas[0]}</h1>`,`<h1>${cervejas[1]}</h1>`, `<h1>${cervejas[2]}</h1>`] 
+
+            let cervejasHtml = cervejas.map(transformar) 
+
+            div.innerHTML = `${cervejasHtml.join("\n")}`
+
+        }
+
+        function carregarDivOrdenada(){
+
+            let div = document.getElementById("cervejasOrdenadas")
+
+            //let cervejasHtml = [`<h1>${cervejas[0]}</h1>`,`<h1>${cervejas[1]}</h1>`, `<h1>${cervejas[2]}</h1>`] 
+
+            cervejas.sort()
+            let cervejasHtml = cervejas.map(transformar) 
+
+            div.innerHTML = `${cervejasHtml.join("\n")}`
+
+        }
+
+
+      let botao = document.getElementById("botaoCarregar")
+
+      botao.addEventListener("click", carregarDiv)
+      
+      let botaoOrdena = document.getElementById("botaoOrdena")
+
+      botaoOrdena.addEventListener("click", carregarDivOrdenada) 
+
+   </script>
+
+</html>
