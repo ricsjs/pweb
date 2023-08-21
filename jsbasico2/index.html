@@ -8,13 +8,33 @@
 
       <style>
 
-        .divCervejas{
+        .TableCervejas{
             text-align: center;
             max-width: 100%;
             background-color: aqua;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .TableCervejasOrdenadas{
+            text-align: center;
+            max-width: 100%;
+            background-color: green;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .tableCervejasEmbaralhadas{
+            text-align: center;
+            max-width: 100%;
+            background-color: red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
         }
 
       </style>
@@ -43,7 +63,35 @@
 
         function transformar(item){
 
-            return `<table border="1" class="divCervejas">
+            return `<table border="1" class="TableCervejas">
+                        <tr>
+                            <tr>
+                                <th>CERVEJA</th>    
+                            <tr>
+                            <tr>
+                                <td>${item}</td>
+                            </tr>    
+                        </tr>
+                    </table>`
+        }
+
+        function transformarOrdenada(item){
+
+            return `<table border="1" class="TableCervejasOrdenadas">
+                        <tr>
+                            <tr>
+                                <th>CERVEJA</th>    
+                            <tr>
+                            <tr>
+                                <td>${item}</td>
+                            </tr>    
+                        </tr>
+                    </table>`
+        }
+
+        function transformarEmbaralhada(item){
+
+            return `<table border="1" class="tableCervejasEmbaralhadas">
                         <tr>
                             <tr>
                                 <th>CERVEJA</th>    
@@ -71,7 +119,7 @@
             let div = document.getElementById("cervejasOrdenadas")
 
             cervejas.sort()
-            let cervejasHtml = cervejas.map(transformar) 
+            let cervejasHtml = cervejas.map(transformarOrdenada) 
 
             div.innerHTML = `${cervejasHtml.join("\n")}`
 
@@ -83,7 +131,7 @@
 
             shuffle(cervejas);
 
-            let cervejasHtml = cervejas.map(transformar) 
+            let cervejasHtml = cervejas.map(transformarEmbaralhada) 
 
             div.innerHTML = `${cervejasHtml.join("\n")}`
 
@@ -104,18 +152,17 @@
             return array;
         }
 
-
-      let botao = document.getElementById("botaoCarregar")
-
-      botao.addEventListener("click", carregarDiv)
-      
-      let botaoOrdena = document.getElementById("botaoOrdena")
-
-      botaoOrdena.addEventListener("click", carregarDivOrdenada)
-
-      let botaoRandom = document.getElementById("botaoRandom")
-
-      botaoRandom.addEventListener("click", carregarDivEmbaralhada) 
+        //exibir
+        let botao = document.getElementById("botaoCarregar")
+        botao.addEventListener("click", carregarDiv)
+        
+        //ordenar
+        let botaoOrdena = document.getElementById("botaoOrdena")
+        botaoOrdena.addEventListener("click", carregarDivOrdenada)
+        
+        //embaralhar
+        let botaoRandom = document.getElementById("botaoRandom")
+        botaoRandom.addEventListener("click", carregarDivEmbaralhada) 
 
    </script>
 
