@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- <div><a href="javascript:carregarJogos(jogos)">Carregando jogos...</a></div> -->
+    <!-- optei por essa opção porque a opção de cima é uma má prática -->
+    <div><a href="#" onclick="carregarJogos(jogos)">Carregando jogos...</a></div>
+    <div id="jogos"></div>
+</body>
+
+<script>
+
+    let jogos = ["CSGO", "LOL", "Point Blank"]
+
+    const carregarJogos = (jogos) => {
+        const div = document.getElementById("jogos")
+        const jogosHtml = jogos.map(item => `<h1>${item}</h1>`)
+        div.innerHTML = `${jogosHtml.join("\n")}`
+    }
+
+</script>
+
+</html>
