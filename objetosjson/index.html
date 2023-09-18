@@ -1,11 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+
+<html>   
+   <head>
+      <meta charset="UTF-8">      
+      <link rel="stylesheet" href="style.css">
+   </head>
+
+   <body>
+
+      <div><button id="botaoCarregar">Carregando cervejas...</button></div>
+      <div id="cervejasDiv"></div>            
+
+   </body>   
+
+   <script>
+
+    let cervejas = [
+        {
+            name:"Guinness",
+            alcohol: "10%",
+            style:"Pilsen",
+            ibu:"10"
+        },
+        {
+            name:"Desperados",
+            alcohol:"10%",
+            style:"Pilsen",
+            ibu:"10"
+            
+        },
+        {
+            name:"Becks",
+            alcohol:"10%",
+            style:"Pilsen",
+            ibu:"10"
+        }
+    ]
+
+
+        const carregarDiv = (cervs,elementDiv = "cervejasDiv",titulos = ["Nome","Álcool","Estilo","IBU"],propriedades = ["name","alcohol","style","ibu"] ) => {
+            const div = document.getElementById(elementDiv) 
+
+            const linhas = cervs.map(item => (`<tr>${propriedades.map(prop =>`<td>${item[prop]}</td>`).join("")}</tr>`)).join("")
+
+            div.innerHTML = `
+            </br>
+            <table class="table">
+                <tr>                
+                    ${titulos.map(tit => `<th class = "title">${tit}</th>`).join("")}        
+                </tr>    
+                <tr>
+                    ${linhas}
+                </tr>
+            </table>
+            `
+        }
+
+    let botao = document.getElementById("botaoCarregar")
+    botao.addEventListener("click",()=>carregarDiv(cervejas))               
+
+   </script>
+
 </html>
