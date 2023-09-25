@@ -9,49 +9,12 @@
 <body>
 
     <div>
-        <button id="botaoCarregar">Carregando cervejas...</button>
+        <button id="botaoCarregar">Carregando usuários...</button>
     </div>
-    <div id="cervejasDiv"></div>
+    <div id="usersDiv"></div>
     
 </body>
 
-<script>
-
-    let cervejas = []
-
-
-    const carregarDiv = cs => {
-    const div = document.getElementById("cervejasDiv")
-    const itensHtml = cs.map( ({name,alcohol}) => `
-        <tr>
-            <td>${name}</td>
-            <td>${alcohol}</td>    
-        </tr>
-    ` ) 
-    div.innerHTML = `
-        <table>
-            <tr>
-                <th>Nome</th>
-                <th>Teor alcoólico</th>
-            </tr>
-            ${itensHtml.join("\n")}
-        </table>
-    `
-    }
-
-    async function carregarCervejas(){
-        try{
-            let res = await fetch("https://random-data-api.com/api/v2/beers?size=3")
-            cervejas = await res.json()
-            carregarDiv(cervejas)
-        }catch(err){
-            document.getElementById("cervejasDiv").innerHTML = "Nenhum dado encontrado..."
-        }
-    }
-
-    let botao = document.getElementById("botaoCarregar")
-    botao.addEventListener("click", () => carregarCervejas() )
-
-</script>
+<script src="script.js"></script>
 
 </html>
