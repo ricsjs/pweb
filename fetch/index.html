@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Fetch</title>
 </head>
 <body>
 
@@ -21,9 +21,21 @@
 
     const carregarDiv = cs => {
     const div = document.getElementById("cervejasDiv")
-    const itensHtml = cs.map( ({name,alcohol}) => `<div>${name} -- ${alcohol}</div>` ) 
-    div.innerHTML = `${itensHtml.join("\n")}`
-
+    const itensHtml = cs.map( ({name,alcohol}) => `
+        <tr>
+            <td>${name}</td>
+            <td>${alcohol}</td>    
+        </tr>
+    ` ) 
+    div.innerHTML = `
+        <table border="1">
+            <tr>
+                <th>Nome</th>
+                <th>Teor alcoólico</th>
+            </tr>
+            ${itensHtml.join("\n")}
+        </table>
+    `
     }
 
     async function carregarCervejas(){
