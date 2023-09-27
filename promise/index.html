@@ -39,11 +39,15 @@
           <tr>
             <th>Name</th>
             <th>Alcohol</th>
+            <th>Style</th>
+            <th>IBU</th>
           </tr>
-          ${cs.map(({ name, alcohol }) => `
+          ${cs.map(({ name, alcohol, style, ibu }) => `
             <tr>
               <td>${name}</td>
               <td>${alcohol}</td>
+              <td>${style}</td>
+              <td>${ibu}</td>
             </tr>`).join("")}
         </table>`
 
