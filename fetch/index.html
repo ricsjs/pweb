@@ -1,20 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Fetch</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css">
+  <title>Tabela Genérica</title>
+
+  <style>
+    table {
+      margin-top: 2em;
+      width: 50%;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      border: 1px solid #7f7f7f;
+    }
+
+    table td, th {
+      padding: 1em;
+      border: 1px solid #7f7f7f;
+    }
+
+    table th {
+      color: white;
+      background-color: black;
+    }
+  </style>
+
+
 </head>
 <body>
+  <div id="table-container"></div>
 
-    <div>
-        <button id="botaoCarregar">Carregando usuários...</button>
-    </div>
-    <div id="usersDiv"></div>
-    
+  <script src="script.js"></script>
+  <script>
+    const size = '?size=5'
+    const tableContainer = document.getElementById('table-container');
+    const endpoint = `https://random-data-api.com/api/users/random_user${size}`; // Exemplo de endpoint da API random-api
+
+    generateTable(endpoint)
+      .then((table) => {
+        if (table) {
+          tableContainer.appendChild(table);
+        } else {
+          tableContainer.textContent = 'Erro ao gerar a tabela.';
+        }
+      });
+  </script>
 </body>
-
-<script src="script.js"></script>
-
 </html>
