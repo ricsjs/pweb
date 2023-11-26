@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receita #3 - React</title>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <script src="libs/babel.js"></script>
+    <script type="text/babel">
+
+        const TabelaBebidas = ({ titulo, subtitle, cabecalhos, conteudo }) => {
+            return (
+                <div>
+                    <h1>{titulo}</h1>
+                    <p>{subtitle}</p>
+                    <table id="tabela" border="1">
+                        <thead>
+                            <tr>
+                                {cabecalhos.map((cabecalho, index) => (
+                                    <th key={index}>{cabecalho}</th>
+                                ))}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {conteudo.map((linha, rowIndex) => (
+                                <tr key={rowIndex}>
+                                    {linha.map((coluna, colIndex) => (
+                                        <td key={colIndex}>{coluna}</td>
+                                    ))}
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            );
+        };
+
+        const valoresCabecalhos = ["Nome", "Marca"];
+        const valoresConteudo = [
+            ["Havana", "Engenho Anísio Santiago"],
+            ["Skol", "Brahma"],
+        ];
+
+        ReactDOM.render(
+            <TabelaBebidas
+                titulo="minha tabela de cana"
+                subtitle="Tabela das melhores canas"
+                cabecalhos={valoresCabecalhos}
+                conteudo={valoresConteudo}
+            />,
+            document.getElementById("app")
+        );
+
+
+
+    </script>
+
+</body>
+
+</html>
